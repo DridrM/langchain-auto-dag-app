@@ -4,6 +4,7 @@ version = "0.1.0"
 description = ""
 authors = ["DridrM"]
 readme = "README.md"
+packages = [{include = "auto_dag_app"}]
 
 [tool.poetry.dependencies]
 python = "^3.12"
