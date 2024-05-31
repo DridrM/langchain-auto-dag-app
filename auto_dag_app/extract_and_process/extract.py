@@ -1,5 +1,7 @@
 import sys
 
+from auto_dag_app.exceptions import ExtensionError
+
 file_name = sys.argv[1]
 
 def extract(file_name: str) -> str:
@@ -7,6 +9,10 @@ def extract(file_name: str) -> str:
     transform it into a string.
     Arguments:
     - file_name: the name of the python file (.py)"""
+
+    # Assure that the file has the .py extension
+    if not file_name.endswith(".py"):
+        raise ExtensionError("The file doesn't have a python extension.")
 
     file_str = ""
 
