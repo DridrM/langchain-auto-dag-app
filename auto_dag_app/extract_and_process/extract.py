@@ -1,5 +1,3 @@
-import sys
-
 from auto_dag_app.exceptions import ExtensionError
 
 
