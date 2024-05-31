@@ -12,5 +12,8 @@ pass
 # Unit tests params #
 #####################
 
-# Path of the test file for the extract step
-TEST_FILE_EXTRACT = "test_files/test_file_extract.py"
+# Path of the python test file for the extract step
+TEST_PY_FILE_EXTRACT = "test_files/test_file_extract.py"
+
+# Path of the python test file for the extract step
+TEST_FAKE_FILE_EXTRACT = "test_files/fake_test_file_extract.txt"

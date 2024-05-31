@@ -2,7 +2,6 @@ import sys
 
 from auto_dag_app.exceptions import ExtensionError
 
-file_name = sys.argv[1]
 
 def extract(file_name: str) -> str:
     """Extract the content of a python file (.py) and
