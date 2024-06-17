@@ -7,7 +7,7 @@ on:
 jobs:
   run-tests:
 
-    startegy:
+    strategy:
       matrix:
         os: [ubuntu-latest]
         python-version: [3.12]
