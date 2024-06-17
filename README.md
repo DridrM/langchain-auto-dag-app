@@ -13,3 +13,5 @@ To complete
 ## Tools used
 The main tool used in this project is Langchain for Python. This is a library aimed to interact with LLM APIs or local LLMs and used to build application around
 the possibilities given by LLMs.
+
+![Tests](https://github.com/DridrM/langchain-auto-dag-app/actions/workflows/run_tests.yaml/badge.svg)
