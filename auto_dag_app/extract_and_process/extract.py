@@ -1,7 +1,7 @@
 from auto_dag_app.exceptions import ExtensionError
 
 
-def extract(file_name: str) -> str:
+def extract_py_files(file_name: str) -> str:
     """Extract the content of a python file (.py) and
     transform it into a string.
     Arguments:
@@ -13,8 +13,8 @@ def extract(file_name: str) -> str:
 
     file_str = ""
 
-    with open(file_name, mode = "r") as file:
+    with open(file_name, mode="r") as file:
         for line in file:
             file_str += line + "\n"
 
-    return file_str
+    return file_name, file_str
