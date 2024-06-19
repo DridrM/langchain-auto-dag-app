@@ -22,3 +22,6 @@ mlruns
 
 # Challengify - test challengification files
 *_challengify*
+
+# Tests files
+.coverage

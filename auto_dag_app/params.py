@@ -15,5 +15,11 @@ pass
 # Path of the python test file for the extract step
 TEST_PY_FILE_EXTRACT = "test_files/test_file_extract.py"
 
-# Path of the python test file for the extract step
+# Path of the fake python test file for the extract step
 TEST_FAKE_FILE_EXTRACT = "test_files/fake_test_file_extract.txt"
+
+# Path of the first python test file for the process step
+TEST_PY_FILE_PROCESS_1 = "test_files/test_file_process_1.py"
+
+# Path of the second python test file for the process step
+TEST_PY_FILE_PROCESS_2 = "test_files/test_file_process_2.py"
