@@ -5,7 +5,7 @@ import os
 # Params from the environment variables: Interaction with the Open AI API #
 ###########################################################################
 
-pass
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
 
 #####################
