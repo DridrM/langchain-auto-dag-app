@@ -8,6 +8,16 @@ import os
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
 
+####################################
+# Params for the create_dag module #
+####################################
+
+DAG_GENERATION_PREPROMPT = (
+    "Write a directed acyclic graph in Mermaid mapping every "
+    "function in this script with other function it is used in."
+)
+
+
 #####################
 # Unit tests params #
 #####################
