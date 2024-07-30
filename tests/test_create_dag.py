@@ -36,6 +36,11 @@ def mock_input() -> list:
     return files_list
 
 
+# Skip the test because it requires the open_ai_api_key. The test only run in local
+# but failed when executed by github actions.
+@pytest.skip(
+    reason="Fail when executed by github actions, because requires the open_ai_api_key"
+)
 def test_create_mermaid_dag_from_scripts(mock_input):
     """Test if the create_mermaid_dag_from_scripts
     function output a string"""
