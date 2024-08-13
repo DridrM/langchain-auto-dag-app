@@ -5,10 +5,10 @@ from auto_dag_app.create_dag.create_dag import create_mermaid_dag_from_scripts
 from auto_dag_app.params import (
     TEST_PY_FILE_PROCESS_1,
     TEST_PY_FILE_PROCESS_2,
-    DAG_GENERATION_PREPROMPT,
     OPENAI_API_KEY,
     GPT_MODEL_PARAMS_DICT,
 )
+from auto_dag_app.preprompt import DAG_GENERATION_PREPROMPT
 
 
 ################################
