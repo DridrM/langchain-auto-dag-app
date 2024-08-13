@@ -1,13 +1,7 @@
-import sys
 from langchain_openai import ChatOpenAI
 from langchain.prompts.chat import ChatPromptTemplate
 
 from auto_dag_app.extract_and_process.process import concat_py_files
-from auto_dag_app.params import (
-    OPENAI_API_KEY,
-    DAG_GENERATION_PREPROMPT,
-    GPT_MODEL_PARAMS_DICT,
-)
 
 
 def create_mermaid_dag_from_scripts(
@@ -44,17 +38,3 @@ def create_mermaid_dag_from_scripts(
     response = chat_model.invoke(messages)
 
     return response.content
-
-
-# Execute the create_mermaid_dag_from_script function
-if __name__ == "__main__":
-    # Read the arguments (python file paths)
-    file_list = sys.argv[1:]
-
-    # Call the function
-    create_mermaid_dag_from_scripts(
-        file_list,
-        machine_template=DAG_GENERATION_PREPROMPT,
-        openai_api_key=OPENAI_API_KEY,
-        model_params=GPT_MODEL_PARAMS_DICT,
-    )
