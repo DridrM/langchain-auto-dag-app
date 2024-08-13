@@ -1,6 +1,6 @@
-default: test
+default: tests
 
-test:
+tests:
 	pytest
 
 test_ep_cov:
