@@ -11,15 +11,26 @@ default_name="autodag"
 if [ ! -d $default_bin ]; then
   echo "Creating the $default_bin directory..."
   mkdir $default_bin
+
   echo "Exporting $default_bin to PATH..."
-  echo -e '\n# Export ~/.local/bin to PATH\n [ "${PATH#*$default_bin:}" == "$PATH" ] && export PATH="$default_bin:$PATH"' >> $SHELL
+  export_str= '\n# Export ~/.local/bin to PATH\n [ "${PATH#*$default_bin:}" == "$PATH" ] && export PATH="$default_bin:$PATH"'
+  case $SHELL in
+    /usr/bin/bash)
+      echo -e $export_str >> $HOME/.bashrc;;
+    /usr/bin/zsh)
+      echo -e $export_str >> $HOME/.zshrc;;
+  esac
+
   echo "Creating the $default_name symlink..."
   ln -s $(pwd)/auto_dag.sh $default_bin/$default_name
+
 elif [ ! -f $default_bin/$default_name ]; then
   echo "Creating the $default_name symlink..."
   ln -s $(pwd)/auto_dag.sh $default_bin/$default_name
+
 else
   echo "The $default_bin/$default_name symlink already exists"
+
 fi
 
 # Restart your shell
