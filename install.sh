@@ -33,5 +33,23 @@ else
 
 fi
 
+# Export the path to the project directory to your bashrc or zshrc
+proj_path_str="\n# Set the path to the auto_dag_app project directory\nexport AUTODAGPATH=$(pwd)"
+
+if [ -z $AUTODAGPATH ]; then
+  echo "Adding the path to the auto_dag_app project as environment variable..."
+
+  case $SHELL in
+    /usr/bin/bash)
+      echo -e $proj_path_str >> $HOME/.bashrc;;
+    /usr/bin/zsh)
+      echo -e $proj_path_str >> $HOME/.zshrc;;
+  esac
+
+else
+  echo "The path to the auto_dag_app already exists"
+
+fi
+
 # Restart your shell
 exec $SHELL
