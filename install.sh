@@ -3,31 +3,23 @@
 # Default user bin directory
 default_bin=$HOME/.local/bin
 
+# Default name for the auto_dag cli command
+default_name="autodag"
+
 # Symlink auto_dag.sh to ~/.local/bin if exists
 # or create it if not
 if [ ! -d $default_bin ]; then
+  echo "Creating the $default_bin directory..."
   mkdir $default_bin
-elif [ ! -f $default_bin/auto_dag.sh ]; then
-  ln -s $(pwd)/auto_dag.sh $default_bin/auto_dag.sh
+  echo "Exporting $default_bin to PATH..."
+  echo -e '\n# Export ~/.local/bin to PATH\n [ "${PATH#*$default_bin:}" == "$PATH" ] && export PATH="$default_bin:$PATH"' >> $SHELL
+  echo "Creating the $default_name symlink..."
+  ln -s $(pwd)/auto_dag.sh $default_bin/$default_name
+elif [ ! -f $default_bin/$default_name ]; then
+  echo "Creating the $default_name symlink..."
+  ln -s $(pwd)/auto_dag.sh $default_bin/$default_name
 else
-  echo "The $default_bin/auto_dag.sh symlink already exists"
-fi
-
-# Alias auto_dag.sh in your aliases file
-# if exists else in your zshrc or your bashrc
-dotfiles=$(find $HOME -name dotfiles -type d)
-aliases=$(find $dotfiles -name aliases -type f)
-alias_str="\n# auto_dag cli tool : Create a graphical map of your software project\nalias adag=$default_bin/auto_dag.sh"
-
-if [[ -d $dotfiles && -f $aliases ]]; then
-  echo -e $alias_str >> $aliases
-else
-  case $SHELL in
-    /usr/bin/bash)
-      echo -e $alias_str >> $HOME/.bashrc;;
-    /usr/bin/zsh)
-      echo -e $alias_str >> $HOME/.zshrc;;
-  esac
+  echo "The $default_bin/$default_name symlink already exists"
 fi
 
 # Restart your shell
