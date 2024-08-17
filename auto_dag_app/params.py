@@ -5,7 +5,9 @@ import os
 # Params from the environment variables: Interaction with the Open AI API #
 ###########################################################################
 
-OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+# Note: this parameter is no longer needed because ChatOpenAI load directly env
+# variable named 'OPENAI_API_KEY'
+# OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
 
 ####################################

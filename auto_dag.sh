@@ -1,11 +1,7 @@
-#!/usr/bin/bash
+#!/usr/bin/zsh
 
 # Read input scripts as array
 scripts=("$@")
-
-cd $HOME/Code/DridrM/personal_data_projects/langchain_auto_dag_app
-
-echo "$(pwd)"
 
 # Verify if there is at least one input
 if [ ${#scripts[@]} -eq 0 ]; then
@@ -13,11 +9,14 @@ if [ ${#scripts[@]} -eq 0 ]; then
   exit 1
 fi
 
-# Start the virtual environment
-poetry shell
+# Execute script in the auto_dag project directory
+cd $AUTODAGPATH
+
+# This command allow direnv to work in the sub-process
+eval "$(direnv export zsh)"
 
 # Run the auto_dag_app
-result=$(python3 ./auto_dag_app/main.py ${scripts[*]})
+results=$(poetry run python3 auto_dag_app/main.py ${scripts[*]})
 
 # Show result
-echo "$result"
+echo "$results"

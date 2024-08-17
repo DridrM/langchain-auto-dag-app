@@ -53,3 +53,6 @@ fi
 
 # Restart your shell
 exec $SHELL
+
+# Give proper permission to your main.py
+chmod +x $AUTODAGPATH/auto_dag_app/main.py

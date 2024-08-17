@@ -5,8 +5,8 @@ from auto_dag_app.extract_and_process.process import concat_py_files
 
 
 def create_mermaid_dag_from_scripts(
-    files_list: list, machine_template: str, openai_api_key: str, model_params: dict
-) -> str:
+    files_list: list, machine_template: str, model_params: dict
+):
     """Generate a directed acyclic graph (DAG) representing the structure of a
     python project splited in several scripts interacting with each other.
     The DAG output is a script in the Mermaid langage. The DAG is generated
@@ -24,7 +24,9 @@ def create_mermaid_dag_from_scripts(
     human_template = "{text}"
 
     # Instanciate a chat model
-    chat_model = ChatOpenAI(openai_api_key=openai_api_key, **model_params)
+    # Note: the openai_api_key arg is no longer needed with this version of
+    # langchain, because it directly reed the api key from environment variables
+    chat_model = ChatOpenAI(**model_params)
 
     # Create the chat prompt
     chat_prompt = ChatPromptTemplate.from_messages(
