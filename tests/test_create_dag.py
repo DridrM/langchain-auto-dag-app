@@ -5,7 +5,6 @@ from auto_dag_app.create_dag.create_dag import create_mermaid_dag_from_scripts
 from auto_dag_app.params import (
     TEST_PY_FILE_PROCESS_1,
     TEST_PY_FILE_PROCESS_2,
-    OPENAI_API_KEY,
     GPT_MODEL_PARAMS_DICT,
 )
 from auto_dag_app.preprompt import DAG_GENERATION_PREPROMPT
@@ -48,7 +47,6 @@ def test_create_mermaid_dag_from_scripts(mock_input):
     response = create_mermaid_dag_from_scripts(
         mock_input,
         machine_template=DAG_GENERATION_PREPROMPT,
-        openai_api_key=OPENAI_API_KEY,
         model_params=GPT_MODEL_PARAMS_DICT,
     )
     assert isinstance(response, str)
